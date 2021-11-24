@@ -1,0 +1,37 @@
+.item-count {
+	width: 20rem;
+	border-radius: 0.2rem;
+	div {
+		width: 100%;
+		height: 4rem;
+		padding-top: 1rem;
+		text-align: center;
+		background-color: #2ab7ca;
+		position: relative;
+	}
+	.minus,
+	.plus {
+		position: absolute;
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+		height: 100%;
+		padding: 1rem;
+		top: 0;
+	}
+	.minus {
+		left: 0;
+	}
+	.plus {
+		right: 0;
+	}
+	.add-to-cart-btn {
+		margin-top: 1rem;
+		border: #2ab7ca solid 0.2rem;
+		border-radius: 0.2rem;
+		width: 100%;
+		background-color: transparent;
+		padding: 1rem;
+		cursor: pointer;
+	}
+}
