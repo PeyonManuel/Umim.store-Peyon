@@ -1,5 +1,5 @@
 import React from 'react';
-import './ItemListContainer.css';
+import './ItemListContainer.scss';
 const ItemListContainer = ({ greeting }) => {
 	return (
 		<div>
