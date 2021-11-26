@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { products } from '../../data';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 import { ItemCount } from '../ItemCount/ItemCount';
+import { useParams } from 'react-router';
 export const ItemDetailContainer = () => {
 	const [item, setItem] = useState(null);
+	const { itemId } = useParams();
 	useEffect(() => {
-		const getProducts = new Promise((resolve, reject) => {
+		const getProduct = new Promise((resolve, reject) => {
 			const fetchedProducts = products;
 			const index = Math.random() * 5;
 			setTimeout(() => {
-				resolve(fetchedProducts[Math.floor(index)]);
+				resolve(fetchedProducts[itemId]);
 			}, 2000);
 		});
-		getProducts.then((res) => setItem(res));
+		getProduct.then((res) => setItem(res));
 	}, []);
 	return (
 		<div>

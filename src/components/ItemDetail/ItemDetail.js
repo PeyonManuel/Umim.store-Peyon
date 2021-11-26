@@ -6,6 +6,7 @@ export const ItemDetail = ({ item }) => {
 			<h3>{item.title}</h3>
 			<img src={item.pictureUrl} alt='Product picture' />
 			<p>{item.description}</p>
+			<p>{item.category}</p>
 			<span className='price'>{`$ ${item.price}`}</span>
 		</div>
 	);

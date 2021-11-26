@@ -13,13 +13,18 @@ const NavBar = () => {
 					</Link>
 				</li>
 				<li>
-					<a href='#'>Supermercado</a>
+					<Link to='/category/Tecnologia'>Tecnologia</Link>
 				</li>
 				<li>
-					<a href='#'>Ofertas</a>
+					<Link to='/category/Limpieza y mantenimiento'>
+						Limpieza y mantenimiento
+					</Link>
 				</li>
 				<li>
-					<a href='#'>Ayuda</a>
+					<Link to='/category/Deportes y fitness'>Deportes y fitness</Link>
+				</li>
+				<li>
+					<Link to='/category/Belleza'>Belleza</Link>
 				</li>
 			</ul>
 			<CartWidget />
