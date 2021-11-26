@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { products } from '../../data';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
+import { ItemCount } from '../ItemCount/ItemCount';
 export const ItemDetailContainer = () => {
 	const [item, setItem] = useState(null);
 	useEffect(() => {
@@ -17,6 +18,7 @@ export const ItemDetailContainer = () => {
 		<div>
 			<h3>Detalles</h3>
 			{item ? <ItemDetail item={item} /> : <h1>Loading...</h1>}
+			<ItemCount stock={5} />
 		</div>
 	);
 };

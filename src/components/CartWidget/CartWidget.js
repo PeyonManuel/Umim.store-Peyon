@@ -2,12 +2,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import './CartWidget.scss';
+import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
 	return (
-		<div>
-			<FontAwesomeIcon icon={faShoppingCart} className='cart-icon' />
-		</div>
+		<Link to='/cart' className='cart-icon'>
+			<FontAwesomeIcon icon={faShoppingCart} />
+		</Link>
 	);
 };
 
