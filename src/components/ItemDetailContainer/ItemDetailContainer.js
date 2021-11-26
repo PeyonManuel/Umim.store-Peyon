@@ -5,6 +5,7 @@ import { ItemCount } from '../ItemCount/ItemCount';
 import { useParams } from 'react-router';
 export const ItemDetailContainer = () => {
 	const [item, setItem] = useState(null);
+	const [loading, setLoading] = useState(true);
 	const { itemId } = useParams();
 	useEffect(() => {
 		const getProduct = new Promise((resolve, reject) => {
@@ -14,12 +15,23 @@ export const ItemDetailContainer = () => {
 				resolve(fetchedProducts[itemId]);
 			}, 2000);
 		});
-		getProduct.then((res) => setItem(res));
+		getProduct.then((res) => {
+			setItem(res);
+			setLoading(false);
+		});
 	}, []);
 	return (
 		<div>
 			<h3>Detalles</h3>
-			{item ? <ItemDetail item={item} /> : <h1>Loading...</h1>}
+			{!loading ? (
+				item ? (
+					<ItemDetail item={item} />
+				) : (
+					<h1>No existe este item</h1>
+				)
+			) : (
+				<h1>Loading...</h1>
+			)}
 			<ItemCount stock={5} />
 		</div>
 	);
