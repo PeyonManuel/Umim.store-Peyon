@@ -1,4 +1,16 @@
 .cart-icon {
 	text-decoration: none;
 	color: black;
+	position: relative;
+	.cart-counter {
+		position: absolute;
+		bottom: -1rem;
+		right: -1rem;
+		background-color: white;
+		font-size: 1.5rem;
+		border-radius: 50%;
+		width: 2rem;
+		height: 2rem;
+		text-align: center;
+	}
 }

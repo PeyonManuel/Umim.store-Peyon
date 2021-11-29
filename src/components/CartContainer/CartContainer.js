@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/cartContext';
 import { Cart } from '../Cart/Cart';
 import { CartButtons } from '../CartButtons/CartButtons';
@@ -16,7 +17,10 @@ export const CartContainer = () => {
 					</>
 				) : (
 					//si no hay carrito
-					<h1>El carrito esta vacio</h1>
+					<>
+						<h1>El carrito esta vacio</h1>
+						<Link to='/'>Volver</Link>
+					</>
 				)
 			}
 		</div>
