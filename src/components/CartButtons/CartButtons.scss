@@ -7,7 +7,6 @@
 	justify-content: space-between;
 	.clear-cart-btn,
 	.buy-cart-btn {
-		margin-right: 1rem;
 		border: none;
 		border-radius: 0.5rem;
 		padding: 1.5rem;
@@ -22,6 +21,7 @@
 	}
 	.buy-cart-btn {
 		background-color: #2ab7ca;
+		margin-right: 1rem;
 	}
 	.cart-total {
 		h2 {
@@ -31,6 +31,39 @@
 				margin-left: 1rem;
 				color: #00cf00;
 			}
+		}
+	}
+	.confirm-clear-pop {
+		height: 100vh;
+		width: 100%;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 1000;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		&__div {
+			background-color: white;
+			padding: 2rem;
+			position: relative;
+		}
+		.popover-close-btn {
+			background-color: transparent;
+			border: none;
+			position: absolute;
+			top: 1rem;
+			right: 0.5rem;
+			cursor: pointer;
 		}
 	}
 }
