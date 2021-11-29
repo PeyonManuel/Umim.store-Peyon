@@ -1,0 +1,36 @@
+.cart-buttons {
+	display: flex;
+	align-items: center;
+	background-color: white;
+	margin-top: 1rem;
+	padding: 1rem;
+	justify-content: space-between;
+	.clear-cart-btn,
+	.buy-cart-btn {
+		margin-right: 1rem;
+		border: none;
+		border-radius: 0.5rem;
+		padding: 1.5rem;
+		color: white;
+		font-weight: bold;
+		font-size: 1.5rem;
+		cursor: pointer;
+		text-decoration: none;
+	}
+	.clear-cart-btn {
+		background-color: #fe4a49;
+	}
+	.buy-cart-btn {
+		background-color: #2ab7ca;
+	}
+	.cart-total {
+		h2 {
+			margin: 0;
+			display: inline;
+			.price {
+				margin-left: 1rem;
+				color: #00cf00;
+			}
+		}
+	}
+}

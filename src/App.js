@@ -2,11 +2,12 @@ import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetail
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
 import NavBar from './components/NavBar/NavBar.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { CartContext } from './context/cartContext.js';
+import { CartProvider } from './context/cartContext.js';
+import { CartContainer } from './components/CartContainer/CartContainer.js';
 
 function App() {
 	return (
-		<CartContext.Provider value={[]}>
+		<CartProvider>
 			<BrowserRouter>
 				<div className='App'>
 					<NavBar />
@@ -21,11 +22,12 @@ function App() {
 							<Route
 								path='/item/:itemId'
 								element={<ItemDetailContainer />}></Route>
+							<Route path='/cart' element={<CartContainer />}></Route>
 						</Routes>
 					</main>
 				</div>
 			</BrowserRouter>
-		</CartContext.Provider>
+		</CartProvider>
 	);
 }
 

@@ -1,7 +1,8 @@
 $headerHeight: 6rem;
 
-body {
-	margin-top: $headerHeight;
+main {
+	position: absolute;
+	top: $headerHeight;
 }
 .navbar {
 	position: absolute;

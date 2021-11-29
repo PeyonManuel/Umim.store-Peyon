@@ -3,9 +3,10 @@ import { Item } from '../Item/Item';
 import './ItemList.scss';
 export const ItemList = ({ items }) => {
 	return (
-		<div className='item-list' key='item-list'>
+		<div className='item-list'>
 			{items.map((item) => (
 				<Item
+					key={item.id}
 					id={item.id}
 					title={item.title}
 					price={item.price}

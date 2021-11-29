@@ -16,7 +16,8 @@ body {
 	background-color: #f4f4f8;
 }
 main {
-	margin: 1rem;
+	padding: 1rem;
+	width: 100%;
 }
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

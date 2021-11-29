@@ -1,33 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { products } from '../../data';
+import React, { useContext, useEffect, useState } from 'react';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 import { ItemCount } from '../ItemCount/ItemCount';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import './ItemDetailContainer.scss';
+import { CartContext } from '../../context/cartContext';
+import { collection, getDoc, doc } from 'firebase/firestore/lite';
+import { db } from '../../firebase/config';
 export const ItemDetailContainer = () => {
 	const [item, setItem] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [isAdded, setIsAdded] = useState(false);
+	const { addItem, isInCart } = useContext(CartContext);
 	const { itemId } = useParams();
-
-	const onAdd = (quantityToAdd) => {
-		alert(`Se ha añadido a su carrtito la cantidad de: ${quantityToAdd}`);
+	const onAdd = (item, quantityToAdd) => {
+		if (!isInCart(item.id)) {
+			addItem(item, quantityToAdd);
+		}
 		setIsAdded(true);
 	};
 
 	useEffect(() => {
-		const getProduct = new Promise((resolve, reject) => {
-			const fetchedProducts = products;
-			const index = Math.random() * 5;
-			setTimeout(() => {
-				resolve(fetchedProducts[itemId]);
-			}, 2000);
-		});
-		getProduct.then((res) => {
-			setItem(res);
-			setLoading(false);
-		});
+		const productRef = collection(db, 'products');
+		const docRef = doc(productRef, itemId);
+
+		getDoc(docRef)
+			.then((doc) => setItem({ id: doc.id, ...doc.data() }))
+			.finally(() => setLoading(false));
 	}, []);
 	return (
 		<div>
@@ -37,9 +36,9 @@ export const ItemDetailContainer = () => {
 					<>
 						<ItemDetail item={item} />
 						{!isAdded ? (
-							<ItemCount stock={5} onAdd={onAdd} />
+							<ItemCount stock={5} onAdd={onAdd} item={item} />
 						) : (
-							<div class='buy-btn'>
+							<div className='buy-btn'>
 								<Link to='/cart'>Terminar compra</Link>
 							</div>
 						)}

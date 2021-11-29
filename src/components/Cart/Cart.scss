@@ -1,0 +1,45 @@
+.cart-item {
+	&:hover {
+		.item-delete-btn {
+			display: block;
+		}
+	}
+	height: 10rem;
+	display: flex;
+	background-color: white;
+	align-items: center;
+	padding: 2rem;
+	justify-content: flex-start;
+	position: relative;
+	.img-div {
+		height: 100%;
+		margin-right: 2rem;
+	}
+	.price {
+		margin-left: auto;
+		color: #00cf00;
+	}
+	.title-quantity {
+		display: flex;
+		flex-direction: column;
+		h4 {
+			padding: 0;
+			margin-top: 0;
+		}
+	}
+	.item-delete-btn {
+		position: absolute;
+		right: 0rem;
+		height: 100%;
+		background: rgb(255, 255, 255);
+		background: radial-gradient(
+			circle,
+			rgba(255, 255, 255, 1) 21%,
+			rgba(255, 255, 255, 0) 62%
+		);
+		width: 6rem;
+		border: none;
+		display: none;
+		cursor: pointer;
+	}
+}

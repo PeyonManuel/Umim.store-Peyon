@@ -3,10 +3,10 @@ import './ItemCount.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { useCounter } from '../../customHooks/useCounter';
-export const ItemCount = ({ stock = 10, initial = 1, onAdd }) => {
+export const ItemCount = ({ stock = 10, initial = 1, onAdd, item }) => {
 	const { count, increment, decrement, reset, setCount } = useCounter(1, 5);
-	const addToCart = (count) => {
-		onAdd(count);
+	const addToCart = (item, count) => {
+		onAdd(item, count);
 	};
 	return (
 		<div className='item-count'>
@@ -20,7 +20,9 @@ export const ItemCount = ({ stock = 10, initial = 1, onAdd }) => {
 				</button>
 			</div>
 
-			<button className='add-to-cart-btn' onClick={() => addToCart(count)}>
+			<button
+				className='add-to-cart-btn'
+				onClick={() => addToCart(item, count)}>
 				Añadir al carrito
 			</button>
 		</div>
