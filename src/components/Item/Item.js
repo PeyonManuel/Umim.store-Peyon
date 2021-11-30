@@ -7,7 +7,7 @@ export const Item = ({ id, title, price, pictureUrl }) => {
 			<Link to={`/item/${id}`}>
 				<h4>{title}</h4>
 				<div className='img-div'>
-					<img src={pictureUrl} alt='item picture' />
+					<img src={pictureUrl} alt='item' />
 				</div>
 				<span className='price'>{`$ ${price}`}</span>
 			</Link>

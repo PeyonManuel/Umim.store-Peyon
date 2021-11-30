@@ -1,0 +1,29 @@
+.checkout-div {
+	max-width: 120rem;
+	margin: auto;
+}
+.checkout-form {
+	display: flex;
+	flex-direction: column;
+	width: 30rem;
+	margin: 2rem auto;
+	input {
+		border: 1px solid #2ab7ca;
+		border-radius: 0.5rem;
+		margin-bottom: 1rem;
+		padding: 1rem;
+	}
+	button {
+		background-color: #2ab7ca;
+		border: none;
+		border-radius: 0.5rem;
+		padding: 1rem;
+		color: white;
+		font-size: 2rem;
+		font-weight: bold;
+		cursor: pointer;
+	}
+	button:disabled {
+		background-color: gray;
+	}
+}

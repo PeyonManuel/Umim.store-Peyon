@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ItemCount.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { useCounter } from '../../customHooks/useCounter';
 export const ItemCount = ({ stock = 10, initial = 1, onAdd, item }) => {
-	const { count, increment, decrement, reset, setCount } = useCounter(1, 5);
+	const { count, increment, decrement } = useCounter(1, stock);
 	const addToCart = (item, count) => {
 		onAdd(item, count);
 	};

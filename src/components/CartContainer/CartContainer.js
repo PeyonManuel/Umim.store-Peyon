@@ -5,7 +5,7 @@ import { Cart } from '../Cart/Cart';
 import { CartButtons } from '../CartButtons/CartButtons';
 import './CartContainer.scss';
 export const CartContainer = () => {
-	const { cart, removeItem, clear } = useContext(CartContext);
+	const { cart, removeItem, clear, totalCompra } = useContext(CartContext);
 	return (
 		<div className='cart-container'>
 			{
@@ -13,7 +13,7 @@ export const CartContainer = () => {
 				cart.length > 0 ? (
 					<>
 						<Cart cart={cart} removeItem={removeItem} />
-						<CartButtons cart={cart} clear={clear} />
+						<CartButtons cart={cart} clear={clear} totalCompra={totalCompra} />
 					</>
 				) : (
 					//si no hay carrito

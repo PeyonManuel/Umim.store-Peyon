@@ -8,7 +8,7 @@ import {
 } from '../../context/deleteCartContext';
 import './CartButtons.scss';
 
-export const CartButtons = ({ cart, clear }) => {
+export const CartButtons = ({ cart, clear, totalCompra }) => {
 	return (
 		<div className='cart-buttons'>
 			<div>
@@ -24,7 +24,7 @@ export const CartButtons = ({ cart, clear }) => {
 							<div className='confirm-clear-pop__div'>
 								<h2>¿Estas seguro que deseas vaciar el carrito?</h2>
 								<button className='clear-cart-btn' onClick={clear}>
-									Confirmar
+									Continuar
 								</button>
 								<PopoverCloseButton />
 							</div>
@@ -35,9 +35,7 @@ export const CartButtons = ({ cart, clear }) => {
 			<div className='cart-total'>
 				<h2>
 					Total:
-					<span className='price'>
-						${cart.reduce((a, b) => a + b.item.price * b.quantity, 0)}
-					</span>
+					<span className='price'>${totalCompra()}</span>
 				</h2>
 			</div>
 		</div>
