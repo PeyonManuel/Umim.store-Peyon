@@ -14,7 +14,7 @@ export const ItemDetail = ({ item, onAdd, isInCart }) => {
 				item.stock > 0 ? (
 					<ItemCount stock={item.stock} onAdd={onAdd} item={item} />
 				) : (
-					<span className='no-stock'>Producto fuera de stock</span>
+					<span className='error-message'>Producto fuera de stock</span>
 				)
 			) : (
 				<div className='buy-btn'>

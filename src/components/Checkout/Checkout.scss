@@ -10,8 +10,15 @@
 	input {
 		border: 1px solid #2ab7ca;
 		border-radius: 0.5rem;
-		margin-bottom: 1rem;
+		margin: 0.5rem 0;
 		padding: 1rem;
+		&.error {
+			border: 2px solid #eb5c5c;
+		}
+	}
+	.formik-message {
+		margin: 0.5rem 0;
+		font-size: 1.2rem;
 	}
 	button {
 		background-color: #2ab7ca;
@@ -22,6 +29,7 @@
 		font-size: 2rem;
 		font-weight: bold;
 		cursor: pointer;
+		margin-top: 0.5rem;
 	}
 	button:disabled {
 		background-color: gray;
