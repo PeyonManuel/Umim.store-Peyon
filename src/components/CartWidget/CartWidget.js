@@ -11,12 +11,6 @@ const CartWidget = () => {
 	const [totalQuantity, setTotalQuantity] = useState(0);
 	useEffect(() => {
 		const totalQuantityTemp = cart.reduce((a, b) => a + b.quantity, 0);
-		if (totalQuantityTemp === 0) {
-			document.querySelector('.cart-icon').style.display = 'none';
-		}
-		if (totalQuantityTemp > 0) {
-			document.querySelector('.cart-icon').style.display = 'block';
-		}
 		setTotalQuantity(totalQuantityTemp);
 	}, [cart]);
 	return (

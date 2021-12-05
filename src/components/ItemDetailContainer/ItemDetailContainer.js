@@ -21,11 +21,15 @@ export const ItemDetailContainer = () => {
 		const docRef = doc(productRef, itemId);
 
 		getDoc(docRef)
-			.then((doc) => setItem({ id: doc.id, ...doc.data() }))
+			.then((doc) => {
+				if (doc.data()) {
+					setItem({ id: doc.id, ...doc.data() });
+				}
+			})
 			.finally(() => setLoading(false));
 	}, [itemId]);
 	return (
-		<div>
+		<div className='site-container'>
 			<h3>Detalles</h3>
 			{!loading ? (
 				item ? (

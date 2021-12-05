@@ -1,4 +1,4 @@
-.cart-buttons {
+.cart-buttons-total {
 	display: flex;
 	align-items: center;
 	background-color: white;
@@ -23,16 +23,7 @@
 		background-color: #2ab7ca;
 		margin-right: 1rem;
 	}
-	.cart-total {
-		h2 {
-			margin: 0;
-			display: inline;
-			.price {
-				margin-left: 1rem;
-				color: #00cf00;
-			}
-		}
-	}
+
 	.confirm-clear-pop {
 		height: 100vh;
 		width: 100%;

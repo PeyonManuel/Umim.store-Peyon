@@ -28,7 +28,7 @@ const ItemListContainer = ({ greeting }) => {
 			});
 	}, [categoryId]);
 	return (
-		<div>
+		<div className='site-container'>
 			<h1>{greeting}</h1>
 			{!loading ? (
 				productsList.length > 0 ? (

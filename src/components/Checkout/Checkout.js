@@ -9,6 +9,7 @@ import './Checkout.scss';
 
 export const Checkout = () => {
 	const [orderId, setOrderId] = useState(null);
+	const [confirmEmail, setConfirmEmail] = useState(null);
 	const [values, setValues] = useState({
 		name: '',
 		email: '',
@@ -31,11 +32,15 @@ export const Checkout = () => {
 		email: yup
 			.string()
 			.required('Este campo es obligatorio')
-			.email('Ingrese un email valido'),
+			.email('Ingrese un email valido')
+			.matches(confirmEmail, 'Los emails tienen que ser iguales'),
 		tel: yup
 			.string()
 			.required('Este campo es obligatorio')
-			.matches(/^[0-9-+\s()]{6,16}/, 'Ingrese un telefono valido'),
+			.matches(
+				/^[+]?[(]?[0-9]{3}[)]?[-s.]?[0-9]{3}[-s.]?[0-9]{4,6}$/,
+				'Ingrese un telefono valido'
+			),
 	});
 
 	useEffect(() => {
@@ -43,7 +48,7 @@ export const Checkout = () => {
 	}, [orderId]);
 
 	return (
-		<div className='checkout-div'>
+		<div className='site-container'>
 			{cart.length > 0 || orderId ? (
 				orderId ? (
 					<>
@@ -55,6 +60,12 @@ export const Checkout = () => {
 					<>
 						<h2>Resumen de compra</h2>
 						<Cart cart={cart} />
+						<div className='checkout-total'>
+							<h2>
+								Total:
+								<span className='price'>${totalCompra()}</span>
+							</h2>
+						</div>
 						<Formik
 							initialValues={values}
 							validationSchema={validateSchema}
@@ -75,6 +86,18 @@ export const Checkout = () => {
 										value={formik.values.email}
 										onChange={formik.handleChange}></Field>
 									<p className='formik-message'>{formik.errors.email}</p>
+									<Field
+										type='text'
+										name='confirmEmail'
+										placeholder='Confirmar email'
+										value={confirmEmail}
+										onChange={(e) => {
+											setConfirmEmail(
+												e.target.value !== '' ? e.target.value : null
+											);
+										}}
+									/>
+									<p className='formik-message' />
 									<Field
 										type='tel'
 										name='tel'

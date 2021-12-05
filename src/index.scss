@@ -44,3 +44,10 @@ code {
 	font-weight: bold;
 	border-radius: 0.5rem;
 }
+
+.site-container {
+	margin: auto;
+	max-width: 120rem;
+	display: flex;
+	flex-direction: column;
+}

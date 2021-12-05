@@ -1,7 +1,3 @@
-.checkout-div {
-	max-width: 120rem;
-	margin: auto;
-}
 .checkout-form {
 	display: flex;
 	flex-direction: column;
@@ -33,5 +29,16 @@
 	}
 	button:disabled {
 		background-color: gray;
+	}
+}
+.checkout-total {
+	padding: 0 1rem;
+	background-color: white;
+	margin-top: 1rem;
+	border-radius: 0.5rem;
+	text-align: end;
+	.price {
+		margin-left: 1rem;
+		color: #00cf00;
 	}
 }

@@ -4,15 +4,22 @@ import { useState } from 'react/cjs/react.development';
 export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
-	const [cart, setCart] = useState([]);
+	const [cart, setCart] = useState(
+		localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+	);
 	const addItem = (item, quantity) => {
-		setCart([...cart, { item, quantity }]);
+		const newCart = [...cart, { item, quantity }];
+		setCart(newCart);
+		localStorage.setItem('cart', JSON.stringify(newCart));
 	};
 	const removeItem = (itemId) => {
-		setCart(cart.filter(({ item }) => item.id !== itemId));
+		const newCart = cart.filter(({ item }) => item.id !== itemId);
+		setCart(newCart);
+		localStorage.setItem('cart', JSON.stringify(newCart));
 	};
 	const clear = () => {
 		setCart([]);
+		localStorage.removeItem('cart');
 	};
 	const isInCart = (itemId) => {
 		const itemToFind = cart.find(({ item }) => item.id === itemId);

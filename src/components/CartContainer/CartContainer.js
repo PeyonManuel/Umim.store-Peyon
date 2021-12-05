@@ -7,13 +7,25 @@ import './CartContainer.scss';
 export const CartContainer = () => {
 	const { cart, removeItem, clear, totalCompra } = useContext(CartContext);
 	return (
-		<div className='cart-container'>
+		<div className='site-container'>
 			{
 				//si hay carrito
 				cart.length > 0 ? (
 					<>
 						<Cart cart={cart} removeItem={removeItem} />
-						<CartButtons cart={cart} clear={clear} totalCompra={totalCompra} />
+						<div className='cart-buttons-total'>
+							<CartButtons
+								cart={cart}
+								clear={clear}
+								totalCompra={totalCompra}
+							/>
+							<div className='cart-total'>
+								<h2>
+									Total:
+									<span className='price'>${totalCompra()}</span>
+								</h2>
+							</div>
+						</div>
 					</>
 				) : (
 					//si no hay carrito

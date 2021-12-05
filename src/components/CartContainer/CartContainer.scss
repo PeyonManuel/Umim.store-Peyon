@@ -1,4 +1,10 @@
-.cart-container {
-	margin: auto;
-	max-width: 120rem;
+.cart-total {
+	h2 {
+		margin: 0;
+		display: inline;
+		.price {
+			margin-left: 1rem;
+			color: #00cf00;
+		}
+	}
 }
