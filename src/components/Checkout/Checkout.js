@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../context/cartContext';
 import { generateOrder } from './generateOrder';
 import { Link } from 'react-router-dom';
-import { Cart } from '../Cart/Cart';
 import { Field, Formik } from 'formik';
 import * as yup from 'yup';
 import './Checkout.scss';
+import { CheckoutDetail } from './CheckoutDetail';
 
 export const Checkout = () => {
 	const [orderId, setOrderId] = useState(null);
@@ -53,19 +53,16 @@ export const Checkout = () => {
 				orderId ? (
 					<>
 						<h2>Gracias por su compra!</h2>
-						<p>Su número de comrpa es: {orderId}</p>
+						<Link to={`/order/${orderId}`}>
+							Su número de comrpa es: {orderId}
+						</Link>
+						<br />
 						<Link to='/'>Volver</Link>
 					</>
 				) : (
 					<>
 						<h2>Resumen de compra</h2>
-						<Cart cart={cart} />
-						<div className='checkout-total'>
-							<h2>
-								Total:
-								<span className='price'>${totalCompra()}</span>
-							</h2>
-						</div>
+						<CheckoutDetail cart={cart} />
 						<Formik
 							initialValues={values}
 							validationSchema={validateSchema}
